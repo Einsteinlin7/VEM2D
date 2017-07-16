@@ -1,0 +1,86 @@
+%\documentclass[12pt,a4paper]{article}
+\documentclass{article}
+\usepackage{ctex}
+\usepackage{CJK}%%%%%%%%%%%%%%%%
+\usepackage{listings}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage[center]{titlesec}%标题居中
+\usepackage{lipsum}     %随机生成文本的宏包
+\usepackage{geometry}   %设置页边距的宏包
+\usepackage{titlesec}   %设置页眉页脚的宏包
+%%% 如果想要自由设置页面属性的话，可以使用geometry宏包。
+%%% geometry宏包可以让我们自由设置上下左右的页边距。
+\geometry{left=2cm,right=2.5cm,top=2.5cm,bottom=2.5cm}  %设置 上、左、下、右 页边距
+
+\begin{document}\hypersetup{CJKbookmarks=true}
+
+
+
+\newpagestyle{main}{
+    \sethead{Chen}{Si}{Ying}     %设置页眉
+    \setfoot{SJTU}{Sen Lin}{\thepage}      %设置页脚，可以在页脚添加 \thepage  显示页数
+    \headrule                                      % 添加页眉的下划线
+    \footrule                                       %添加页脚的下划线
+}
+\pagestyle{main}    %使用该style
+%\lipsum[1]%使用随机生成文本
+%\clearpage
+
+
+%\title{微分方程数值解习题解答}
+%\author{林森 \\{\small(上海交通大学 数学科学学院,\quad 上海 \quad 200240)}}
+\title{\emph{专业英语翻译报告}\\\textbf{A Linear Adaptive time-stepping Method for Solving Vibration Problems with Damping Terms}}
+% Title
+\author{\\\\\\\\\textbf{}
+\Large{\emph{Submitted by:}}\\\\\Large{\textbf{Name: 林 森(Sen Lin)}}\\\textbf{Class: B1407191}\\\textbf{No: 1140719011}
+\\\textbf{Course Code: Z140502}\\\textbf{Course Name: Professional English(专业英语)}
+\\\textbf{}
+\\\\\\\textbf{Grade: \qquad \qquad}\\\textbf{Signature: \qquad \quad}
+%\\\\\textbf{Signature of the Supervisor:}
+\\\\\\\textbf{ \qquad \qquad}\\\textbf{ \qquad \quad }
+\\\\\\\textbf{}
+\\\\\\\textbf{School of Mathematical Sciences}\\\textbf{Shanghai Jiao Tong University}\\\\}
+
+
+
+\date{}
+\maketitle
+\newpage
+\numberwithin{equation}{section}
+%\begin{center}
+%{\large The solutions to the Homeworks of Numerical Solution for Partial Differential Equations}
+%\end{center}
+%
+%\noindent{\bf Abstract}: This article mainly help students to understand the homeworks better.
+%\vspace{1pc}
+%
+%\begin{figure}[b]
+%\rule[-2.5truemm]{5cm}{0.1truemm}\\[2mm]{
+%\quad\quad {\bf收稿日期:}\,2015-07-07\, \\
+%{\bf 作者简介:}\,黄建国, 男, 教授, 博士生导师,\\
+%  \mbox{}\qquad\qquad~\,林森, 男, 硕士生, 研究方向以有限元方法为主. \\
+%  \mbox{}\qquad\qquad~\,电话: 021-54743151-2105; \\
+%  %\mbox{}\qquad\qquad~\,E-mail:jghuang@sjtu.edu.cn \& linsenlyj@163.com }
+%  \mbox{}\qquad\qquad~\,E-mail:jghuang@sjtu.edu.cn \& sjtu\_Einsteinlin7@sjtu.edu.cn }
+%\end{figure}
+%\vspace{0.1mm}
+
+请在此添加内容
+
+\newpage
+\begin{equation}
+\label{Eq:NumSolEpr}
+\mathbf{U}(t)=\mathbf{U}^{n-1}+(t-t_{n-1})\mathbf{\dot{U}}_{-}^{n},\qquad
+\mathbf{U}'(t) = \mathbf{\dot{U}}_{-}^{n},\qquad
+\mathbf{U}''(t) = \mathbf{0}.
+\end{equation}
+
+\end{document} 
