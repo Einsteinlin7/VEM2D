@@ -1,0 +1,559 @@
+%The final version by LS on Oct 10th, 2016
+%The manuscript  by LS on Oct 8th, 2016
+\documentclass[12pt]{article}
+%%% The default page size is A4 piece of paper.
+%%% In "[]", we can set the page size,also can set the font for your documents.
+%%% \documentclass[11pt,a5paper]{article}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+%%%use (\usepackage[fleqn]{amsmath}) can change the formula that was center aligned into the left.
+\usepackage{bm}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{indentfirst}
+%%%Features: Makes two blank space at the beginning of each paragraph.
+\usepackage{cite}
+\usepackage{mathrsfs}
+\usepackage{caption2}
+\usepackage{CJK}
+\usepackage{stmaryrd}
+\usepackage{subfigure}
+\usepackage{overpic}
+\usepackage{enumerate}
+\usepackage{cases}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{ctex}
+\usepackage{color,xcolor}
+
+%%% added by Lin in the following
+\usepackage{url}  %%% add underlining on a mailbox by "\_"
+\usepackage{slashbox}
+\usepackage[active]{srcltx}
+\usepackage{verbatim} %add comments H
+\usepackage{float}
+\usepackage{times} %%% Sen added:Uncomment to use the Times New Roman font
+\usepackage{tikz}  %%% figure
+\usepackage{picinpar} %%%window,figwindow,tabwindow
+%\DeclareMathOperator*{\argmin}{arg\,min}%% 自动底标了
+%\synctex=0
+%\usepackage{geometry}   %设置页边距的宏包
+%\usepackage{titlesec}   %设置页眉页脚的宏包
+%%% 如果想要自由设置页面属性的话，可以使用geometry宏包。
+%%% geometry宏包可以让我们自由设置上下左右的页边距。
+%%% \geometry{left=2cm,right=2cm,top=2.5cm,bottom=2.5cm}  %设置 上、左、下、右 页边距
+
+%%%%%%% added by Einstein Lin
+%%%%% Definition of the environmental category theorem %%%%
+%\providecommand{\U}[1]{\protect\rule{.1in}{.1in}} \textwidth 15.2cm
+%\textheight 23.4cm \hoffset -1.5cm \voffset -2.2cm
+%%%%\newtheorem{theorem}{\bf Theorem}[section]
+%%%% the added '[section]' means theorem numbered by section
+%\newtheorem{theorem}{\bf Theorem}
+%\newtheorem{remark}{Remark}
+%\newtheorem{lemma}{Lemma}
+%\newtheorem{example}{Example}
+%\newtheorem{defn}{Definition}
+%\newtheorem{cor}{Corollary}
+%\newtheorem{axiom}{Axiom}
+%\newtheorem{proposition}{Proposition}
+%\newtheorem{condition}{Condition}
+%\newtheorem{conclusion}{Conclusion}
+%
+%\renewcommand{\figurename}{Figure}
+%\renewcommand{\tablename}{Table}
+%\renewcommand\refname{Reference}
+%\floatname{algorithm}{Algorithm}
+%
+%\newenvironment{proof}[1][Proof]{\textbf{#1.} }
+%{\ \rule{0.75em}{0.75em}\smallskip}
+%%\newenvironment{proof}[1][\bf Proof]{\textbf{#1.} }{}
+%\newenvironment{question}[1][\bf\large Que]{\noindent\textbf{#1:} }{\par}
+%%\numberwithin{equation}{section} %%%number the formula by section
+%\newcommand{\ucite}[1]{$^{\mbox{\scriptsize \cite{#1}}}$}
+%\def\QEDopen{{\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{0.2pt}\fbox{\rule[0pt]{0pt}{1.3ex}\rule[0pt]{1.3ex}{0pt}}}} %Define hollow characters
+%\def\QED{\QEDopen}
+
+
+
+%%% The following is for inserting the code in our Report
+\usepackage{listings}          % Insert codes
+%%%for code settings
+\lstset{language=Matlab}
+\lstset{breaklines}
+\lstset{extendedchars=false}
+\lstset{ %
+	extendedchars=false,            % Shutdown no-ASCII compatible
+	language=Matlab,                % choose the language of the code
+	basicstyle=\footnotesize\tt,    % the size of the fonts that are used for the code
+	tabsize=3,                      % sets default tabsize to 3 spaces
+	numbers=left,                  % where to put the line-numbers
+	%numberstyle=\tiny,             % the size of the fonts that are used for the line-numbers
+	%stepnumber=1,                  % the step between two line-numbers. If it's 1 each line will be numbered
+	%numbersep=5pt,                 % how far the line-numbers are from the code
+	keywordstyle=\color[rgb]{0,0,1},                % keywords
+	commentstyle=\color[rgb]{0.133,0.545,0.133},    % comments
+	stringstyle=\color[rgb]{0.627,0.126,0.941},     % strings
+	backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+	showspaces=false,               % show spaces adding particular underscores
+	showstringspaces=false,         % underline spaces within strings
+	showtabs=false,                 % show tabs within strings adding particular underscores
+%	frame=single,                   % adds a frame around the code, we have 2 Options: "shadowbox" & "single"
+	frame=shadowbox,                %xleftmargin=2em,xrightmargin=2em, aboveskip=1em;
+	captionpos=b,                   % sets the caption-position to bottom
+	breaklines=true,                % sets automatic line breaking
+	breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+	title=\lstname,                 % show the filename of files included with \lstinputlisting;
+	% also try caption instead of title
+	mathescape=true,escapechar=?    % escape to latex with ?..?
+	escapeinside={\%*}{*)},         % if you want to add a comment within your code
+	%columns=fixed,                  % nice spacing
+	%morestring=[m]',                % strings
+	%morekeywords={%,...},%          % if you want to add more keywords to the set
+	%    break,case,catch,continue,elseif,else,end,for,function,global,%
+	%    if,otherwise,persistent,return,switch,try,while,...},%
+}
+
+
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT INFORMATION
+%----------------------------------------------------------------------------------------
+\begin{document}
+\begin{CJK*}{GBK}{song}
+%%%\theoremstyle{break}
+%%%\theorembodyfont{\kaishu}
+
+%%%% 定理类环境的定义 %%%%
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\newtheorem{theorem}{\bf 定理}
+\newtheorem{remark}{\bf 注}
+\newtheorem{lemma}{\bf 引理}
+\newtheorem{assumption}{假设}
+\floatname{algorithm}{算法}
+\renewcommand\refname{参考文献}
+\newtheorem{definition}{定义}
+\newtheorem{axiom}{公理}
+\newtheorem{proposition}{命题}
+\newtheorem{corollary}{推论}
+\newtheorem{condition}{条件}
+\newtheorem{conclusion}{结论}
+\newtheorem{property}{性质}
+\newcommand{\ucite}[1]{$^{\mbox{\scriptsize \cite{#1}}}$}
+\def\QEDopen{{\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{0.2pt}\fbox{\rule[0pt]{0pt}{1.3ex}\rule[0pt]{1.3ex}{0pt}}}} % 定义空心符
+\def\QED{\QEDopen}
+\newenvironment{proof}[1][\bf 证明]{\textbf{#1.} }{\QED}%{}
+\newenvironment{question}[1][\bf\large 问题]{\noindent\textbf{#1:} }%{?\par}
+%\def\QED{\QEDopen}
+%\newenvironment{solution}[1][\bf 解答]{\textbf{#1.} }{\QED}
+
+
+\title{\emph{VEM Theory Analysis}\\\textbf{The Poincar\'{e}-Friedrichs inequality on polygon and its applications}}
+% Title
+\author{\Large{\emph{Submitted by:}}\\\\\Large{\textbf{JGH Seminars}}\\\textbf{School of Mathematical Science}\\\textbf{Shanghai Jiao Tong University in Shanghai}\\}
+%\author{JGH Seminars\\{\small(SJTU, School of Mathematical Science, Shanghai, 200240)}}
+% Author name
+\date{}
+\maketitle
+
+\begin{center}
+{\Large 多角形上的Poincar\'{e}-Friedrichs不等式及其应用}
+\end{center}
+
+%\noindent{\bf Key Words}: \qquad Polygon Division,Centroid Coordinate,Matlab code.
+\vspace{1pc}
+%\noindent{\bf Abstract}: This article mainly help students to understand the homeworks better.
+%\vspace{1pc}
+
+%%%\begin{figure}[b]
+%%%\rule[-2.5truemm]{5cm}{0.1truemm}\\[2mm]{
+%%%\quad\quad {\bf收稿日期:}\,2016-09-27\, \\
+%%%{\bf 作者简介:}\,黄建国, 男, 教授, 博士生导师,\\
+%%%  \mbox{}\qquad\qquad~\,林森, 男, 博士研究生, 研究方向以有限元方法为主. \\
+%%%  \mbox{}\qquad\qquad~\,电话: 021-54743151-2105; \\
+%%%  %\mbox{}\qquad\qquad~\,E-mail:jghuang@sjtu.edu.cn \& linsenlyj@163.com }
+%%%  \mbox{}\qquad\qquad~\,E-mail:jghuang@sjtu.edu.cn \& sjtu\_Einsteinlin7@sjtu.edu.cn }
+%%%\end{figure}
+%%%\vspace{0.1mm}
+
+%%\begin{figure}[b]
+%%\rule[-2.5truemm]{5cm}{0.1truemm}\\[2mm]{
+%%\quad {\bf Submitted date:}\,2016-10-08\, \\
+%%{\bf Author:}\,Sen Lin, Male,PhD.\\
+%%  \mbox{}\qquad\quad~\,Research on the Finite Element Method(FEM). \\
+%%  \mbox{}\qquad\quad~\,Tel:13262292127; \\
+%%  \mbox{}\qquad\quad~\,E-mail:linsenlyj@163.com.}
+%%  %\mbox{}\qquad\qquad~\,E-mail:jghuang@sjtu.edu.cn \& sjtu\_Einsteinlin7@sjtu.edu.cn }
+%%\end{figure}
+%%\vspace{0.1mm}
+
+
+
+%%% Generate directory
+\newpage
+\tableofcontents
+\newpage
+%\numberwithin{equation}{section}    %number formula by section
+
+
+
+%%% Section 1
+\section{多角形的Poincar\'{e}-Friedrichs不等式}
+由等价模定理可以推得
+\begin{itemize}
+  \item Poincar\'{e}不等式:
+       \[
+         \|v\|_{0,K}\leq{C}\big(|v|_{1,K} + |\int_{K}v(x)\rm{d}x|\big)
+         \quad \forall v \in H^1(K);
+       \]
+%%%       \begin{align*}
+%%%           \|v\|_{0,K}\leq{C}\big(|v|_{1,K} + |\int_{K}v(x)\rm{d}x|\big)
+%%%           \quad \forall v \in H^1(K);
+%%%       \end{align*}
+  \item Friedrichs不等式:
+       \[
+         \|v\|_{0,K}\leq{C}\big(|v|_{1,K} + |\int_{\partial{K}}v(x)\rm{d}s(x)|\big)
+         \quad \forall v \in H^1(K).
+       \]
+\end{itemize}
+上述两式是$p=2$的结果,进一步,我们可以得到更一般的结果.
+\begin{equation*}
+\label{Eq:PFIeq}%%%Poincar\'{e}-Friedrichs inequality for W^{1,p}.
+\left\{
+\begin{aligned}
+   \|v\|_{L^p(K)} & \leq{C}\big(|v|_{W^{1,p}(K)}+|\int_{K}v(x)\rm{d}x|\big)
+         & \forall v \in W^{1,p}(K);       \\
+   \|v\|_{L^p(K)} & \leq{C}\big(|v|_{W^{1,p}(K)}+|\int_{\partial{K}}v(x)\rm{d}s(x)|\big)
+         & \forall v \in W^{1,p}(K).
+\end{aligned}
+\right.
+\end{equation*}
+其中,$K\subset\mathbb{R}^2$是一个有界且连通的多角形区域和$1\leq{p}\leq\infty$.
+\begin{itemize}
+  \item 1.由紧性论证技巧可证明:$C=C(K)$,即正常数$C$ 仅取决于$K$.
+  \item 2.若$K$为三角形,可由\textbf{scaling-argument} 来获得一致估计.
+\end{itemize}
+
+\begin{question}
+\label{Q1}
+当$K$为一般的多角形时,如何处理?即它需要满足什么要求时,可以得到一致估计?
+\end{question}
+
+下面,我们假设多角形$K$满足如下\textbf{性质P}:
+\begin{property}[\large\textbf{P}] \label{Pro1}
+有以下三点: \\
+(1)存在$K$的正规三角剖分$\mathcal{T}_{h_K}(K)$,这里正规(shape-regularity),
+   意指,存在常数$C_r>0$使
+   \[
+     h_{\tau}/\rho_{\tau} \leq C_r < \infty, \quad \forall \tau \in \mathcal{T}_{h_K}(K),
+   \]
+   且$K$的每条边必为$\mathcal{T}_{h_K}(K)$中某一单元$\tau$之边; \\
+(2)$\mathcal{T}_{h_K}(K)$中的单元个数是一致有界的,即$\#\mathcal{T}_{h_K}(K)\leq{L}$; \\
+(3)在$K$中包含以半径为$r$的一个圆,且$h_K\lesssim{r}$, 其中生成的正常数$C$有界.
+\end{property}
+
+进一步,我们给出星形区域的定义,并给出两个例子来说明.
+\begin{definition}[Star-shaped区域]\label{D1} \mbox{}\par
+   我们称区域$\Omega\subset\mathbb{R}^2$关于某个圆$B$(3 维为球)是星形的,
+如果对于$\forall{x}\in\Omega$,$\{x\}\cup{B}$ 的闭凸包还是$\Omega$的子集.
+\end{definition}
+
+\begin{figure}[!h]
+  \centering
+    \subfigure[Domain star-shaped with respect to $B_1$ but not $B_2$]{
+    \label{Fig1:subfig:1}      %% label for first subfigure
+    \includegraphics[width=2.1in,height=2.1in]{StarDomain01.eps}} %{StarDomain1.eps}
+    \hspace{0.05in}
+    \subfigure[Domain which is not star-shaped with respect to any circle $B$]{
+    \label{Fig1:subfig:2}      %% label for second subfigure
+    \includegraphics[width=2.1in,height=2.1in]{StarDomain02.eps}}
+    \caption{星形区域的两个例子}
+    \label{Fig1} %% label for entire figure
+\end{figure}
+从图\ref{Fig1}可以看出图\ref{Fig1:subfig:1} 中的区域$\Omega$是星形区域,而
+图\ref{Fig1:subfig:2}中的区域$\Omega$却不是星形区域.
+
+\begin{proposition}\label{P1}
+若多角形$K$为星形区域(star-shaped domain)且相应圆的半径$r$满足$h_K\lesssim{r}$,
+且$\mathcal{T}_{h_K}(K)$中的每一单元$\tau$满足$h_{\tau}\approx{h_{K}}$,则
+显然$K$满足\textbf{性质\ref{Pro1}}.
+\end{proposition}
+
+在此,我们想说明一点:一方面,$h_{\tau}\lesssim{h_{K}}$ 显然成立;另一方面,由
+\[
+  L*\pi(\frac{h_\tau}{2})\geq |K| \geq \pi{r}^2  \gtrsim\pi h_K^2
+\]
+可得 $h_{K}\lesssim{h_{\tau}}$.
+
+\begin{lemma}\label{L1}
+给定一个三角形单元$\tau$,其满足$h_\tau/\rho_{\tau}\leq{C_r}<\infty$,设$e$为
+$K$的任一边,则成立
+\begin{equation}
+\label{Eq:FIeq}
+  \|v\|_{0,p,K} \lesssim {h}_{\tau}^{-1}|v|_{1,p,K} + h_{\tau}^{2/p-1}|\int_ev\rm{d}s|
+  \quad \forall v\in W^{1,p}(K).
+\end{equation}
+式中$1\leq p<\infty$.
+\end{lemma}
+
+由\textbf{scaling argument}和参考元上的Friedrichs不等式立知结果.
+
+
+\begin{theorem}[带几何尺度的Friedrichs不等式]
+\label{T1}\mbox{}\par
+假设多角形$K$满足\textbf{性质\ref{Pro1}},则对任何$v\in{W}^{1,p}(K)$
+使$\int_{\partial{K}}v\rm{d}s=0$,成立估计
+\begin{equation}
+\label{Eq:GFIeq} %%%  Friedrichs Inequality with Geometric scale
+  \|v\|_{L^p(K)} \lesssim {h_K}|v|_{1,p,K}
+\end{equation}
+式中生成常数与$h_K$无关.
+\end{theorem}
+
+\begin{proof}
+\label{Proof1}
+我们分以下几步给出证明. \\
+\textbf{step 1.}设$h_K=diam(K)=1$,故由$h_{\tau}\approx{h_K}$知
+$h_{\tau}\approx1$.设$\partial{K}$由$N$条边$e_1,e_2,\cdots,e_N$ 组成,
+对任一边$e$,定义
+\[
+  A_ev = \frac{1}{|e|}\int_ev\rm{d}s.
+\]
+则由条件$\int_{\partial{K}}v\rm{d}s=0$知
+\[
+  \sum_{i=1}^N |e_i|A_{e_i}v = 0 \Rightarrow
+  \sum_{i=1}^N \frac{|e_i|}{|\partial{K}|} A_{e_i}v = 0.
+\]
+进一步,有
+\begin{equation}
+\label{Eq:GFIeq_LpEst1}
+  \begin{aligned}
+   \|v\|_{L^p(K)} & =     \|v - \sum_{i=1}^N \frac{|e_i|}{|\partial{K}|} A_{e_i}v\|_{L^p(K)}    \\
+                  & =     \|\sum_{i=1}^N \frac{|e_i|}{|\partial{K}|} (v - A_{e_i}v)\|_{L^p(K)}  \\
+                  & \leq  \sum_{i=1}^N \frac{|e_i|}{|\partial{K}|} \|(v - A_{e_i}v)\|_{L^p(K)}  \\
+                  & \leq  \max_{1\leq{i}\leq{N}} \|(v - A_{e_i}v)\|_{L^p(K)}.
+  \end{aligned}
+\end{equation}
+\textbf{step 2.} 记$w_i = v - A_{e_i}v$,$1\leq{i}\leq{N}$.由定义知
+\begin{equation}
+\label{Eq:GFIeq_LpEst2}
+   \|w_i\|_{L^p(K)} \leq \sum_{\tau\in\mathcal{T}_{h_K}(K)} \|w_i\|_{L^p(\tau)}
+        \leq {L} \|w_i\|_{L^p(\tau^{*})}
+\end{equation}
+式中
+\[
+  \|w_i\|_{L^p(\tau^{*})} = \max_{\tau\in\mathcal{T}_{h_K}(K)} \|w_i\|_{L^p(\tau)}
+\]
+对于$\tau^{*}$可以找到一列三角形单元$\tau_1,\tau_2,\cdots,\tau_l$使得
+$\tau_1=\tau^{*}$,$\tau_l=$以$e_i$为边的三角形(可参考下面示意图),其中$\tau_j$和
+$\tau_{j+1}$的公共边为$f_j$,$1\leq{j}\leq{l-1}$,则由$h_{\tau_j}\approx 1$,引理\ref{L1}
+和迹定理知
+\begin{equation}
+\label{Eq:GFIeq_LpEst3}
+\begin{aligned}
+   \|w_i\|_{L^p(\tau^{*})}
+        & =         \|w_i\|_{L^p(\tau_1)}  \\
+        & \lesssim  |w_i|_{1,p,\tau_1} + |\int_{f_1}w_i\rm{d}s|
+                    &  \text{(引理\ref{L1})}                     \\
+        & \lesssim  |w_i|_{1,p,\tau_1} + \|w_i\|_{L^p(f_1)}      \\
+        & \lesssim  |w_i|_{1,p,\tau_1} + \|w_i\|_{1,p,\tau_2}
+                    &  \text{(迹定理)}                           \\
+        & \lesssim  |w_i|_{1,p,\tau_1} + |w_i|_{1,p,\tau_2} + |\int_{f_2}w_i\rm{d}s|
+                    &  \text{($\tau_2$和$\tau_3$的公共边$f_2$)}  \\
+        & \lesssim  \sum_{j=1}^{l-1} |w_i|_{1,p,\tau_j} + \|w_i\|_{1,p,\tau_l}
+                    &  \text{(依此类推)}                         \\
+        & \lesssim  \sum_{j=1}^{l} |w_i|_{1,p,\tau_j}
+                    &  \text{(引理\ref{L1} 和 $A_ev$ 定义)}      \\
+        & \lesssim  \big(\sum_{j=1}^{l} |w_i|_{1,p,\tau_j}^{p}\big)^{1/p}
+                    \big(\sum_{j=1}^l 1\big)^{\frac{p-1}{p}}
+                    &  \text{(C-S不等式)}                        \\
+        & \lesssim  l^{\frac{p-1}{p}} |w_i|_{1,p,K}
+\end{aligned}
+\end{equation}
+由\eqref{Eq:GFIeq_LpEst1}-\eqref{Eq:GFIeq_LpEst3} 知
+\begin{equation}
+\label{Eq:GFIeq_1} %%%  Friedrichs Inequality with Geometric scale one for h_K=1
+  \|v\|_{L^p(K)} \lesssim |v|_{1,p,K}
+\end{equation}
+\begin{figure}[!ht]\label{Fig2}
+   \centering
+%   \includegraphics[width=3.2in]{PolygonPartition1.eps}
+    \includegraphics[width=3.2in,height=3.2in]{PolygonPartition1.eps}
+   \caption{多角形$K$作正规剖分后得到一系列子三角形}
+\end{figure}
+%\begin{figure}[!h]\label{Fig2}
+%   \centering
+%   \includegraphics[width=3.2in]{PolygonPartition.eps}
+%   \caption{多角形$K$作正规剖分后得到一系列子三角形}
+%\end{figure}
+\textbf{step 3.} 对于一般情形,作变量代换$x=h_K\hat{x}$,$K\rightarrow\hat{K}$,
+$diam(\hat{K})=1$,则由\eqref{Eq:GFIeq_1}立知结果\eqref{Eq:GFIeq}.
+\end{proof}
+
+使用与定理\ref{T1}中类似的推导可得
+\begin{theorem}[带几何尺度的Poincar\'{e}不等式]
+\label{T2}\mbox{}\par
+假设多角形$K$满足\textbf{性质\ref{Pro1}},则对任何$v\in{W}^{1,p}(K)$ 使
+$\int_{K}v\rm{d}s=0$,成立估计
+\begin{equation}
+\label{Eq:GPIeq} %%%  Poincar\'{e} Inequality with Geometric scale
+  \|v\|_{L^p(K)} \lesssim {h}_K^{-1}|v|_{1,p,K}
+\end{equation}
+式中$1\leq{p}<\infty$,生成常数$C$与$h_K$无关.
+\end{theorem}
+
+
+
+%%% Section 2
+\section{函数逼近的误差估计}
+本节,我们主要给出关于函数逼近的误差估计的两个定理.
+\begin{theorem}
+\label{T3} %%%\mbox{}\par
+假设多角形$K$满足\textbf{性质\ref{Pro1}},则对$\forall{v}\in{W}^{1,p}(K)$,
+存在$v_{\pi}\in{P_k(K)}$使
+\begin{equation}
+\label{Eq:PAEst} %%% Polynomial Approximation Estimate
+   |v - v_{\pi}|_{l,p,K} \lesssim {h}_K^{k+1-l} |v|_{k+1,p,K},
+   \quad 0\leq{l}\leq{k}.
+\end{equation}
+\begin{proof}
+\label{Proof2}
+不妨设$h_K=1$证明结果即可(对于一般情形,作变量代换$x=h_K\hat{x}$). \\
+找$v_{\pi}\in{P_k(K)}$使
+\[
+  \int_K\partial^{\alpha}(v - v_{\pi}) \rm{d}x = 0, \quad |\alpha|\leq{k}.
+\]
+则由定理\ref{T2}知
+\begin{align*}
+  \|v-v_{\pi}\|_{L^p(K)}
+            & \lesssim |v-v_{\pi}|_{1,p,K}   \\
+            & \lesssim |v-v_{\pi}|_{2,p,K}   \\
+            & \lesssim \cdots                \\
+            & \lesssim |v-v_{\pi}|_{k+1,p,K} \\
+            & \lesssim |v|_{k+1,p,K}.
+\end{align*}
+\end{proof}
+
+对于$\mathcal{T}_{h_K}(K)$,记
+\[
+  \overline{V}_{h_K}(K) := \{ v\in{C}(\overline{K}): v|_e\in{P_k(e)},
+                              \forall{e}\in\mathcal{T}_{h_K}(K) \}.
+\]
+$E_K$:$\overline{V}_{h_K}(K)$相应的$k$次Lagrange插值算子. \\
+对$\forall{v}\in{H}^{k+1}(K)$,记$w=I_Kv$,由以下条件确定:
+\begin{equation}
+\label{Eq:IPDK} %%% Interpolation Projector definition on K
+   \left\{
+   \begin{aligned}
+      \Delta{w} & = \Delta{v_\pi} \in {P_{k-2}(K)}
+                & \text{in} \quad K; \\
+              w & = E_Kv\in{B}_k(\partial{K})
+                & \text{on} \quad \partial{K}.
+   \end{aligned}
+   \right.
+\end{equation}
+显然$w=I_Kv\in{V_k(K)}$. \eqref{Eq:IPDK}即
+\begin{equation}
+\label{Eq:IPDK1} %%% Interpolation Projector definition 1 on K
+   \left\{
+   \begin{aligned}
+      \Delta(w-v_\pi) & = 0
+                      & \text{in} \quad K; \\
+              w-v_\pi & = E_Kv - v_\pi
+                & \text{on} \quad \partial{K}.
+   \end{aligned}
+   \right.
+\end{equation}
+由能量最小原理知
+\[
+  |w-v_\pi|_{1,K} \leq |E_Kv - v_\pi|_{1,K}
+  \leq |E_Kv - w|_{1,K} + |w - v_\pi|_{1,K}
+\]
+进一步,有
+\begin{equation}
+\label{Eq:IPEsti_K} %%% Interpolation Projector Estimate on K
+   \begin{aligned}
+     |v-I_Kv|_{1,K} & = |v- w|_{1,K}                   \\
+                    & \leq |v-v_\pi|_{1,K} + |w - v_\pi|_{1,K}
+                       & \text{($\pm{v_\pi}$)}         \\
+                    & \leq |v-v_\pi|_{1,K} + |E_Kv - v_\pi|_{1,K} \\
+                    & \leq 2|v-v_\pi|_{1,K} + |v - E_Kv|_{1,K}
+                       & \text{($\pm{v}$)}              \\
+                    & \leq 2[|v-v_\pi|_{1,K} + |v - E_Kv|_{1,K}]  \\
+                    & \lesssim {h}_K^k |v|_{k+1,K}.
+                       & \text{(\eqref{Eq:PAEst} 和$E_Kv$ 定义)}
+   \end{aligned}
+\end{equation}
+由定理\ref{T1}知
+\begin{align*}
+  \|I_Kv - E_Kv\|_{0,K} & = \|w - E_Kv\|_{0,K}  \\
+                        & \lesssim {h}_K |w - E_Kv|_{1,K} \\
+                        & \lesssim {h}_K^k |v|_{k+1,K}
+\end{align*}
+\begin{align*}
+  \|v - I_Kv\|_{0,K} & \leq \|v - E_Kv\|_{0,K} + \|I_Kv - E_Kv\|_{0,K}
+                       & \text{($\pm{E_Kv}$)}               \\
+                     & \lesssim {h}_K^{k+1} |v|_{k+1,K}
+\end{align*}
+对$\forall{v}\in{H}^{k+1}(\Omega)$,定义:
+\[
+  (I_hv)(x) := (I_Kv)(x) \quad x\in{K}.
+\]
+
+\end{theorem}
+
+\begin{theorem}
+\label{T4} %%%\mbox{}\par
+假设多角形$K$满足\textbf{性质\ref{Pro1}},则对$\forall{v}\in{H}^{k+1}(K)$,
+有$I_hv\in{V_h}$,且成立
+\begin{equation}
+\label{Eq:IPAEst} %%% Interpolation Projector Approximation Estimate
+  \left\{
+  \begin{aligned}
+  |v-I_hv|_{1,K}   & \lesssim {h}_K^{k}|v|_{k+1,K}; \\
+  \|v-I_hv\|_{0,K} & \lesssim {h}_K^{k+1}|v|_{k+1,K}.
+  \end{aligned}
+  \right.
+\end{equation}
+\end{theorem}
+由\eqref{Eq:IPDK}-\eqref{Eq:IPEsti_K},立即可得\eqref{Eq:IPAEst}.
+
+
+
+%%% Section 3
+\section{在VEM分析中的应用}
+FEM: 找$u\in{V}:=H_0^1(\Omega)$使
+\[
+   a(u,v) = f(v) \quad \forall {v}\in V.
+\]
+
+VEM: 找$u_h\in{V}_h$使
+\[
+   a_h(u_h,v) = f_h(v) \quad \forall {v}\in V_h.
+\]
+式中$V_h\subset{V}$.  \\
+由第一Strang引理知
+\begin{align*}
+    |u - u_h|_{1,\Omega}
+      & \lesssim  |u - I_hu|_{1,\Omega} + \sup_{v\in{V_h}}|a(I_hu,v) - a_h(I_hu,v) |/|v|_{1,\Omega} 
+                  + \|f - f_h\|_{-1,\Omega}  \\
+                & \quad \text{(由$a(u_\pi,v)=a_h(u_\pi,v)$,其中分片$u_\pi\in\mathbb{P}_k$)}  \\
+%      & \lesssim  |u - I_hu|_{1,\Omega} + \sup_{v\in{V_h}}|a(I_hu-u_\pi,v) - a_h(I_hu-u_\pi,v)|/|v|_{1,\Omega}
+%                  + \|f - f_h\|_{-1,\Omega}  \\
+      & \lesssim  |u - I_hu|_{1,\Omega} + |I_hu - u_\pi |_{1,\Omega} + \|f - f_h\|_{-1,\Omega}  \\
+                & \quad \text{(由$|a(I_hu-u_\pi,v) - a_h(I_hu-u_\pi,v)|\leq{C}|I_hu - u_\pi|_{1,\Omega}|v|_{1,\Omega}$)}  \\
+      & \lesssim  |u - I_hu|_{1,\Omega} + |u - u_\pi|_{1,\Omega} + \|f - f_h\|_{-1,\Omega}  \\
+                & \quad  \text{(由$I_hu - u_\pi = (I_hu - u) + (u-u_\pi)$及三角不等式)}                                    \\
+      & \lesssim h^k |u|_{k+1,\Omega} + h^k |u|_{k+1,\Omega} + h^k |f|_{k-1,\Omega}         \\
+                & \quad  \text{(由定理\ref{T4},定理\ref{T3}和$k\geq2$时)} \\
+      & \lesssim \mathcal{O}(h^k).
+\end{align*}
+
+
+
+\end{CJK*}
+\end{document}
